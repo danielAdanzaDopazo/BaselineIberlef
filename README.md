@@ -30,49 +30,62 @@ El sistema utiliza técnicas de *smart chunking* para procesar textos largos de 
 ```bash
 git clone [https://github.com/tu-usuario/tu-proyecto.git](https://github.com/tu-usuario/tu-proyecto.git)
 cd tu-proyecto
+```
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
-Instalar dependencias:
+```
+
+### 2. Instalar dependencias:
 
 ```bash
 pip install -r requirements.txt
+```
 
-Configuración de Ollama:
+### 3. Configuración de Ollama:
 Asegúrate de tener Ollama instalado y el modelo correspondiente descargado para que el módulo Executor pueda realizar las peticiones.
 
 ## 🖥️ Uso
 Para iniciar el servidor de desarrollo:
 
-Bash
+```bash
 uvicorn main:app --reload
-La API estará disponible en http://localhost:8000. Puedes acceder a la documentación interactiva en /docs.
+#La API estará disponible en http://localhost:8000. Puedes acceder a la documentación interactiva en /docs.
+```
 
-Endpoints Principales
-1. Traductor (POST /translator)
+## Endpoints Principales
+### 1. Traductor (POST /translator)
 Traduce uno o varios textos al idioma objetivo.
 
 Cuerpo de la petición:
 
+```bash
 JSON
 {
   "text": "Hola mundo",
   "languageOutput": "en"
 }
-2. Simplificador (POST /simplifier)
+```
+
+### 2. Simplificador (POST /simplifier)
+
 Simplifica la complejidad de un texto manteniendo su significado.
 
 Cuerpo de la petición:
 
+```bash
 JSON
 {
   "text": "El texto técnico complejo que deseas reducir...",
   "languageInput": "es"
 }
+```
+
 ## 📁 Estructura del Proyecto
+
 Plaintext
-.
+```bash
 ├── Agent/
 │   └── TranslatorModule.py   # Lógica del motor de traducción
 ├── LLMMaganer/
@@ -81,6 +94,7 @@ Plaintext
 ├── NLPModule.py              # Funciones de procesamiento (smart_chunking)
 ├── main.py                   # Punto de entrada de FastAPI
 └── README.md
+```
 
 ## ⚠️ Notas Técnicas
 
